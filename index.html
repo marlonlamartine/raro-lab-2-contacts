@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+
+    <script type="text/babel">
+
+        const Header = () => (
+            <section id="header-bar">
+                <div id="contact-font">
+                    <h1>
+                        <p>
+                            CONTACTS
+                        </p>
+                    </h1>
+                </div>
+                <div>
+                    <button id="btn-search">
+                        Search
+                    </button>
+                </div>
+            </section>
+        )
+
+        const Figure = ({ url, desc }) => (
+            <article>
+                <figure>
+                    <img src={url} id="figure" alt={{ desc }} />
+                </figure>
+            </article>
+        )
+
+        const Description = ({ name, job }) => (
+            <article id="description">
+                <div id="description-name">{name}</div>
+                <div id="description-job">{job}</div>
+            </article>
+        )
+
+        const ContactItem = ({ children }) => (
+            <div id="element-list">
+                <section id="fig-desc-section">
+                    {children}
+                </section>
+                <section id="btn-section">
+                    <button id="btn-call">
+                        Call
+                    </button>
+                    <button id="btn-send">
+                        Send Email
+                    </button>
+                </section>
+            </div>
+        )
+
+        const ContactList = ({ children }) => (
+            <section id="contact-list-section">
+                {children}
+            </section>
+        )
+
+        const Footer = () => (
+            <section>
+                <article id="footer">
+                    We found 23 contacts
+                </article>
+            </section>
+        )
+
+        const Page = ({ children }) => (
+            <div id="container-central">
+                {children}
+            </div>
+        )
+
+        const App = (
+            <Page>
+                <Header />
+                <ContactList>
+                    <ContactItem>
+                        <Figure url="https://i.pinimg.com/originals/4e/45/88/4e458893b1fdc033508016e09fa5553c.jpg" desc="User image" />
+                        <Description name="Tom James" job="Programmer" />
+                    </ContactItem>
+                    <ContactItem>
+                        <Figure url="https://i.pinimg.com/originals/39/0e/4a/390e4aa2c02a1614a143256fa1b9df89.jpg" desc="User image" />
+                        <Description name="Alessa Smith" job="Manager" />
+                    </ContactItem>
+                    <ContactItem>
+                        <Figure url="https://jeonline.com.br/site/uploads/posts/10282_22022017140756.jpg" desc="User image" />
+                        <Description name="Kate Minard" job="Web Designer" />
+                    </ContactItem>
+                    <ContactItem>
+                        <Figure url="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg" desc="User image" />
+                        <Description name="John Tudor" job="Database Admin" />
+                    </ContactItem>
+                </ContactList>
+                <Footer />
+            </Page>
+        )
+
+        ReactDOM.render(App, document.getElementById('root'))
+    </script>
+
+</body>
+
+</html>
